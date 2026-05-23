@@ -56,12 +56,30 @@
       background: var(--gradient); -webkit-background-clip: text;
       -webkit-text-fill-color: transparent; background-clip: text;
     }
+    .nav-right { display: flex; align-items: center; gap: 1.5rem; }
     .nav-links { display: flex; gap: 1.5rem; list-style: none; }
     .nav-links a {
       font-size: .85rem; font-weight: 500; color: var(--text-sub);
       text-decoration: none; transition: color .2s;
     }
     .nav-links a:hover { color: var(--accent); }
+
+    /* ── LANG TOGGLE ── */
+    .lang-toggle {
+      display: flex; align-items: center; gap: .4rem;
+      background: var(--surface); border: 1.5px solid var(--border);
+      border-radius: 99px; padding: .3rem .85rem;
+      font-size: .82rem; font-weight: 700; cursor: pointer;
+      color: var(--text-main);
+      transition: border-color .2s, box-shadow .2s, transform .2s;
+      box-shadow: var(--shadow-sm);
+      white-space: nowrap;
+    }
+    .lang-toggle:hover {
+      border-color: var(--accent); color: var(--accent);
+      box-shadow: var(--shadow-md); transform: translateY(-1px);
+    }
+    .lang-toggle .flag { font-size: 1rem; }
 
     /* ── HERO ── */
     .hero {
@@ -84,21 +102,27 @@
       text-align: center;
       position: relative; z-index: 1;
     }
+    .hero-photo-wrap { margin-bottom: 1.75rem; animation: fadeDown .7s ease both; }
+    .hero-photo {
+      width: 120px; height: 120px; border-radius: 50%;
+      object-fit: cover; object-position: center top;
+      border: 3px solid var(--surface);
+      box-shadow: 0 0 0 5px rgba(79,110,247,.15), var(--shadow-lg);
+      display: block; margin: 0 auto;
+    }
     .hero-badge {
       display: inline-flex; align-items: center; gap: .5rem;
       background: var(--surface); border: 1px solid var(--border);
       border-radius: 99px; padding: .35rem 1rem;
       font-size: .78rem; font-weight: 600; color: var(--accent);
-      margin-bottom: 2rem;
-      box-shadow: var(--shadow-sm);
+      margin-bottom: 2rem; box-shadow: var(--shadow-sm);
       animation: fadeDown .7s ease both;
     }
-    .hero-badge span { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 1.5s infinite; }
+    .hero-badge .pulse-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 1.5s infinite; }
     .hero h1 {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2.6rem, 7vw, 4.5rem);
-      font-weight: 800; line-height: 1.1;
-      letter-spacing: -.03em;
+      font-weight: 800; line-height: 1.1; letter-spacing: -.03em;
       animation: fadeUp .8s .1s ease both;
     }
     .hero h1 .gradient-text {
@@ -198,14 +222,10 @@
     .stat-label { font-size: .8rem; color: var(--text-sub); margin-top: .25rem; font-weight: 500; }
 
     /* ── ABOUT ── */
-    .about-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
-      align-items: start;
-    }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
     .about-card {
       background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 2rem;
-      box-shadow: var(--shadow-sm);
+      border-radius: var(--radius); padding: 2rem; box-shadow: var(--shadow-sm);
     }
     .about-text { color: var(--text-sub); line-height: 1.8; font-size: .95rem; }
     .spec-list { list-style: none; display: flex; flex-direction: column; gap: .65rem; }
@@ -213,10 +233,7 @@
       display: flex; align-items: center; gap: .75rem;
       font-size: .88rem; font-weight: 500; color: var(--text-main);
     }
-    .spec-dot {
-      width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
-      background: var(--gradient);
-    }
+    .spec-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; background: var(--gradient); }
 
     /* ── EXPERIENCE ── */
     .timeline { position: relative; }
@@ -225,9 +242,7 @@
       width: 2px; background: linear-gradient(to bottom, var(--accent), var(--accent2));
       border-radius: 2px;
     }
-    .timeline-item {
-      padding-left: 60px; position: relative; margin-bottom: 2rem;
-    }
+    .timeline-item { padding-left: 60px; position: relative; margin-bottom: 2rem; }
     .timeline-dot {
       position: absolute; left: 10px; top: 1.5rem;
       width: 20px; height: 20px; border-radius: 50%;
@@ -235,14 +250,10 @@
       box-shadow: 0 0 0 4px rgba(79,110,247,.1);
       transition: transform .2s, box-shadow .2s;
     }
-    .timeline-item:hover .timeline-dot {
-      transform: scale(1.2);
-      box-shadow: 0 0 0 6px rgba(79,110,247,.15);
-    }
+    .timeline-item:hover .timeline-dot { transform: scale(1.2); box-shadow: 0 0 0 6px rgba(79,110,247,.15); }
     .exp-card {
       background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.75rem;
-      box-shadow: var(--shadow-sm);
+      border-radius: var(--radius); padding: 1.75rem; box-shadow: var(--shadow-sm);
       transition: transform .25s, box-shadow .25s;
     }
     .exp-card:hover { transform: translateX(4px); box-shadow: var(--shadow-md); }
@@ -260,21 +271,14 @@
       border-radius: 99px; padding: .25rem .75rem;
     }
     .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: .5rem; margin-top: .75rem; }
-    .exp-bullets li {
-      font-size: .87rem; color: var(--text-sub);
-      display: flex; align-items: flex-start; gap: .6rem;
-    }
+    .exp-bullets li { font-size: .87rem; color: var(--text-sub); display: flex; align-items: flex-start; gap: .6rem; }
     .exp-bullets li::before { content: '→'; color: var(--accent2); font-weight: 700; flex-shrink: 0; margin-top: .05rem; }
 
     /* ── SKILLS ── */
-    .skills-wrapper {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.25rem;
-    }
+    .skills-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; }
     .skill-category {
       background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.5rem;
-      box-shadow: var(--shadow-sm);
+      border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow-sm);
       transition: transform .25s, box-shadow .25s;
     }
     .skill-category:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
@@ -288,43 +292,17 @@
     .skill-tag {
       font-size: .8rem; font-weight: 500;
       padding: .3rem .75rem; border-radius: 99px;
-      background: var(--bg); border: 1px solid var(--border);
-      color: var(--text-sub);
+      background: var(--bg); border: 1px solid var(--border); color: var(--text-sub);
       transition: background .2s, color .2s, border-color .2s, transform .2s;
       cursor: default;
     }
-    .skill-tag:hover {
-      background: rgba(79,110,247,.08); border-color: rgba(79,110,247,.3);
-      color: var(--accent); transform: translateY(-1px);
-    }
-
-    /* ── INTERESTS ── */
-    .interests-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.25rem;
-    }
-    .interest-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.75rem;
-      box-shadow: var(--shadow-sm);
-      transition: transform .25s, box-shadow .25s;
-      position: relative; overflow: hidden;
-    }
-    .interest-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: var(--gradient);
-    }
-    .interest-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-    .interest-icon { font-size: 2rem; margin-bottom: .75rem; display: block; }
-    .interest-title { font-weight: 700; font-size: 1rem; margin-bottom: .5rem; }
-    .interest-desc { font-size: .86rem; color: var(--text-sub); line-height: 1.6; }
+    .skill-tag:hover { background: rgba(79,110,247,.08); border-color: rgba(79,110,247,.3); color: var(--accent); transform: translateY(-1px); }
 
     /* ── EDUCATION / CERTS ── */
     .edu-cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
     .edu-card, .cert-card {
       background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.75rem;
-      box-shadow: var(--shadow-sm);
+      border-radius: var(--radius); padding: 1.75rem; box-shadow: var(--shadow-sm);
       transition: transform .25s, box-shadow .25s;
     }
     .edu-card:hover, .cert-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
@@ -333,10 +311,7 @@
     .edu-period { color: var(--text-muted); font-size: .82rem; margin-top: .3rem; }
     .edu-focus { color: var(--text-sub); font-size: .85rem; margin-top: .75rem; padding-top: .75rem; border-top: 1px solid var(--border); }
     .cert-list { list-style: none; display: flex; flex-direction: column; gap: .75rem; }
-    .cert-item {
-      display: flex; align-items: center; gap: .75rem;
-      font-size: .87rem; color: var(--text-sub);
-    }
+    .cert-item { display: flex; align-items: center; gap: .75rem; font-size: .87rem; color: var(--text-sub); }
     .cert-badge {
       width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0;
       display: grid; place-items: center; font-size: 1rem;
@@ -344,14 +319,11 @@
     }
 
     /* ── LANGUAGES ── */
-    .lang-row {
-      display: flex; gap: 1.25rem; flex-wrap: wrap; margin-top: 1.25rem;
-    }
+    .lang-row { display: flex; gap: 1.25rem; flex-wrap: wrap; margin-top: 1.25rem; }
     .lang-card {
       flex: 1; min-width: 160px;
       background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.25rem 1.5rem;
-      box-shadow: var(--shadow-sm);
+      border-radius: var(--radius); padding: 1.25rem 1.5rem; box-shadow: var(--shadow-sm);
       display: flex; align-items: center; gap: 1rem;
     }
     .lang-flag { font-size: 2rem; line-height: 1; }
@@ -359,21 +331,14 @@
     .lang-level { font-size: .8rem; color: var(--accent); font-weight: 600; }
 
     /* ── ACHIEVEMENTS ── */
-    .ach-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-    }
+    .ach-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
     .ach-card {
       background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.5rem;
-      box-shadow: var(--shadow-sm);
+      border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow-sm);
       position: relative; overflow: hidden;
       transition: transform .25s, box-shadow .25s;
     }
-    .ach-card::after {
-      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
-      background: var(--gradient);
-    }
+    .ach-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--gradient); }
     .ach-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
     .ach-value {
       font-size: 2.2rem; font-weight: 800;
@@ -384,31 +349,11 @@
     .ach-label { font-size: .84rem; color: var(--text-sub); margin-top: .4rem; line-height: 1.4; }
 
     /* ── FOOTER ── */
-    footer {
-      background: var(--text-main); color: rgba(255,255,255,.7);
-      text-align: center; padding: 3rem 2rem;
-      font-size: .85rem;
-    }
+    footer { background: var(--text-main); color: rgba(255,255,255,.7); text-align: center; padding: 3rem 2rem; font-size: .85rem; }
     footer strong { color: #fff; }
-    .footer-links {
-      display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;
-      margin-top: 1rem;
-    }
+    .footer-links { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem; }
     .footer-links a { color: rgba(255,255,255,.5); text-decoration: none; font-size: .82rem; transition: color .2s; }
     .footer-links a:hover { color: var(--accent2); }
-
-    /* ── PROFILE PHOTO ── */
-    .hero-photo-wrap {
-      margin-bottom: 1.75rem;
-      animation: fadeDown .7s ease both;
-    }
-    .hero-photo {
-      width: 120px; height: 120px; border-radius: 50%;
-      object-fit: cover; object-position: center top;
-      border: 3px solid var(--surface);
-      box-shadow: 0 0 0 5px rgba(79,110,247,.15), var(--shadow-lg);
-      display: block; margin: 0 auto;
-    }
 
     /* ── ANIMATIONS ── */
     @keyframes fadeUp   { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:none; } }
@@ -416,16 +361,11 @@
     @keyframes bounce   { 0%,100% { transform:translateY(0); } 50% { transform:translateY(6px); } }
     @keyframes pulse    { 0%,100% { opacity:1; } 50% { opacity:.4; } }
 
-    .reveal {
-      opacity: 0; transform: translateY(28px);
-      transition: opacity .65s ease, transform .65s ease;
-    }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .65s ease, transform .65s ease; }
     .reveal.visible { opacity: 1; transform: none; }
 
     /* ── DIVIDER ── */
-    .section-divider {
-      height: 1px; background: var(--border); margin: 0 clamp(1rem,5vw,2.5rem);
-    }
+    .section-divider { height: 1px; background: var(--border); margin: 0 clamp(1rem,5vw,2.5rem); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
@@ -443,13 +383,19 @@
 <!-- NAV -->
 <nav id="navbar">
   <span class="nav-brand">JJV</span>
-  <ul class="nav-links">
-    <li><a href="#about">Perfil</a></li>
-    <li><a href="#experience">Experiencia</a></li>
-    <li><a href="#skills">Habilidades</a></li>
-    <li><a href="#education">Educación</a></li>
-    <li><a href="#contact">Contacto</a></li>
-  </ul>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#about"      data-i18n="nav.about">Perfil</a></li>
+      <li><a href="#experience" data-i18n="nav.experience">Experiencia</a></li>
+      <li><a href="#skills"     data-i18n="nav.skills">Habilidades</a></li>
+      <li><a href="#education"  data-i18n="nav.education">Educación</a></li>
+      <li><a href="#contact"    data-i18n="nav.contact">Contacto</a></li>
+    </ul>
+    <button class="lang-toggle" id="langToggle" onclick="toggleLang()">
+      <span class="flag" id="langFlag">🇺🇸</span>
+      <span id="langLabel">EN</span>
+    </button>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -459,14 +405,14 @@
       <img src="foto.jpeg" alt="Jhon Jairo Vega" class="hero-photo" />
     </div>
     <div class="hero-badge">
-      <span></span>
-      Disponible para reubicación
+      <span class="pulse-dot"></span>
+      <span data-i18n="hero.badge">Disponible para reubicación</span>
     </div>
     <h1>
       Jhon Jairo<br />
       <span class="gradient-text">Vega</span>
     </h1>
-    <p class="hero-sub">Ingeniero Multimedia &nbsp;·&nbsp; Digital Marketing &amp; SEO Specialist &nbsp;·&nbsp; WordPress Developer</p>
+    <p class="hero-sub" data-i18n="hero.subtitle">Ingeniero Multimedia &nbsp;·&nbsp; Digital Marketing &amp; SEO Specialist &nbsp;·&nbsp; WordPress Developer</p>
     <div class="hero-meta">
       <span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -482,13 +428,13 @@
       </a>
     </div>
     <div class="hero-cta">
-      <a href="#contact" class="btn-primary">Contáctame</a>
-      <a href="#experience" class="btn-outline">Ver experiencia</a>
+      <a href="#contact" class="btn-primary" data-i18n="hero.cta.primary">Contáctame</a>
+      <a href="#experience" class="btn-outline" data-i18n="hero.cta.secondary">Ver experiencia</a>
     </div>
   </div>
   <div class="scroll-indicator">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-    scroll
+    <span data-i18n="hero.scroll">scroll</span>
   </div>
 </section>
 
@@ -497,23 +443,23 @@
   <div class="stats-grid reveal">
     <div class="stat-card">
       <div class="stat-value">+40%</div>
-      <div class="stat-label">Visibilidad SEO orgánica</div>
+      <div class="stat-label" data-i18n="stat.seo">Visibilidad SEO orgánica</div>
     </div>
     <div class="stat-card">
       <div class="stat-value">+35%</div>
-      <div class="stat-label">Engagement en campañas digitales</div>
+      <div class="stat-label" data-i18n="stat.engagement">Engagement en campañas digitales</div>
     </div>
     <div class="stat-card">
       <div class="stat-value">-25%</div>
-      <div class="stat-label">Tasa de rebote reducida</div>
+      <div class="stat-label" data-i18n="stat.bounce">Tasa de rebote reducida</div>
     </div>
     <div class="stat-card">
       <div class="stat-value">+10</div>
-      <div class="stat-label">Sitios web lanzados a tiempo</div>
+      <div class="stat-label" data-i18n="stat.websites">Sitios web lanzados a tiempo</div>
     </div>
     <div class="stat-card">
       <div class="stat-value">+20%</div>
-      <div class="stat-label">Conversiones en dispositivos móviles</div>
+      <div class="stat-label" data-i18n="stat.conversions">Conversiones en dispositivos móviles</div>
     </div>
   </div>
 </div>
@@ -523,35 +469,39 @@
 <!-- ABOUT -->
 <section id="about">
   <div class="container">
-    <div class="section-label">Sobre mí</div>
-    <h2 class="section-title">Perfil Profesional</h2>
+    <div class="section-label" data-i18n="about.label">Sobre mí</div>
+    <h2 class="section-title" data-i18n="about.title">Perfil Profesional</h2>
     <div class="about-grid reveal">
       <div class="about-card">
-        <p class="about-text">
-          Ingeniero Multimedia con más de <strong>5 años de experiencia</strong> desarrollando ecosistemas digitales de alto impacto. Especialista en <strong>SEO técnico y on-page</strong>, desarrollo <strong>WordPress</strong>, marketing de contenidos y campañas pagadas (<strong>Meta Ads / Google Ads</strong>).
-          <br /><br />
-          Historial comprobado de incrementar la visibilidad orgánica hasta un <strong>40%</strong>, reducir la tasa de rebote en <strong>25%</strong> y aumentar conversiones en <strong>20%</strong>. Bilingüe (ES/EN – B2), orientado a datos y con sólida capacidad de liderazgo de equipos creativos bajo metodologías ágiles.
+        <p class="about-text" data-i18n-html="about.text">
+          Ingeniero Multimedia con más de <strong>5 años de experiencia</strong> desarrollando ecosistemas digitales de alto impacto. Especialista en <strong>SEO técnico y on-page</strong>, desarrollo <strong>WordPress</strong>, marketing de contenidos y campañas pagadas (<strong>Meta Ads / Google Ads</strong>).<br /><br />Historial comprobado de incrementar la visibilidad orgánica hasta un <strong>40%</strong>, reducir la tasa de rebote en <strong>25%</strong> y aumentar conversiones en <strong>20%</strong>. Bilingüe (ES/EN – B2), orientado a datos y con sólida capacidad de liderazgo de equipos creativos bajo metodologías ágiles.
         </p>
         <div class="lang-row" style="margin-top:1.5rem;">
           <div class="lang-card">
             <span class="lang-flag">🇨🇴</span>
-            <div><div class="lang-name">Español</div><div class="lang-level">Nativo</div></div>
+            <div>
+              <div class="lang-name" data-i18n="lang.spanish">Español</div>
+              <div class="lang-level" data-i18n="lang.native">Nativo</div>
+            </div>
           </div>
           <div class="lang-card">
             <span class="lang-flag">🇺🇸</span>
-            <div><div class="lang-name">Inglés</div><div class="lang-level">B2 — Avanzado</div></div>
+            <div>
+              <div class="lang-name" data-i18n="lang.english">Inglés</div>
+              <div class="lang-level">B2 — <span data-i18n="lang.advanced">Avanzado</span></div>
+            </div>
           </div>
         </div>
       </div>
       <div class="about-card">
-        <p style="font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;">Especializaciones</p>
+        <p style="font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;" data-i18n="about.spec.title">Especializaciones</p>
         <ul class="spec-list">
-          <li class="spec-item"><span class="spec-dot"></span>SEO Técnico &amp; On-Page</li>
-          <li class="spec-item"><span class="spec-dot"></span>WordPress Development &amp; WooCommerce</li>
-          <li class="spec-item"><span class="spec-dot"></span>Campañas Meta Ads &amp; Google Ads</li>
-          <li class="spec-item"><span class="spec-dot"></span>Marketing de Contenidos &amp; Editorial</li>
-          <li class="spec-item"><span class="spec-dot"></span>Web Analytics — GA4, GTM, Looker Studio</li>
-          <li class="spec-item"><span class="spec-dot"></span>UX/UI Design &amp; Producción Multimedia</li>
+          <li class="spec-item"><span class="spec-dot"></span><span data-i18n="spec.1">SEO Técnico &amp; On-Page</span></li>
+          <li class="spec-item"><span class="spec-dot"></span><span data-i18n="spec.2">WordPress Development &amp; WooCommerce</span></li>
+          <li class="spec-item"><span class="spec-dot"></span><span data-i18n="spec.3">Campañas Meta Ads &amp; Google Ads</span></li>
+          <li class="spec-item"><span class="spec-dot"></span><span data-i18n="spec.4">Marketing de Contenidos &amp; Editorial</span></li>
+          <li class="spec-item"><span class="spec-dot"></span><span data-i18n="spec.5">Web Analytics — GA4, GTM, Looker Studio</span></li>
+          <li class="spec-item"><span class="spec-dot"></span><span data-i18n="spec.6">UX/UI Design &amp; Producción Multimedia</span></li>
         </ul>
       </div>
     </div>
@@ -563,28 +513,28 @@
 <!-- ACHIEVEMENTS -->
 <section>
   <div class="container">
-    <div class="section-label">Logros</div>
-    <h2 class="section-title">Resultados medibles</h2>
+    <div class="section-label" data-i18n="ach.label">Logros</div>
+    <h2 class="section-title" data-i18n="ach.title">Resultados medibles</h2>
     <div class="ach-grid reveal">
       <div class="ach-card">
         <div class="ach-value">+40%</div>
-        <div class="ach-label">Visibilidad SEO orgánica mediante estrategias de Link Building y optimización on-page</div>
+        <div class="ach-label" data-i18n="ach.1">Visibilidad SEO orgánica mediante estrategias de Link Building y optimización on-page</div>
       </div>
       <div class="ach-card">
         <div class="ach-value">+35%</div>
-        <div class="ach-label">Engagement en campañas digitales de Meta Ads y Google Ads</div>
+        <div class="ach-label" data-i18n="ach.2">Engagement en campañas digitales de Meta Ads y Google Ads</div>
       </div>
       <div class="ach-card">
         <div class="ach-value">-25%</div>
-        <div class="ach-label">Tasa de rebote reducida con mejoras de UX y velocidad de carga</div>
+        <div class="ach-label" data-i18n="ach.3">Tasa de rebote reducida con mejoras de UX y velocidad de carga</div>
       </div>
       <div class="ach-card">
         <div class="ach-value">+10</div>
-        <div class="ach-label">Sitios web lanzados a tiempo y dentro del presupuesto</div>
+        <div class="ach-label" data-i18n="ach.4">Sitios web lanzados a tiempo y dentro del presupuesto</div>
       </div>
       <div class="ach-card">
         <div class="ach-value">+20%</div>
-        <div class="ach-label">Conversiones en dispositivos móviles con SEO móvil y Core Web Vitals</div>
+        <div class="ach-label" data-i18n="ach.5">Conversiones en dispositivos móviles con SEO móvil y Core Web Vitals</div>
       </div>
     </div>
   </div>
@@ -595,8 +545,8 @@
 <!-- EXPERIENCE -->
 <section id="experience">
   <div class="container">
-    <div class="section-label">Trayectoria</div>
-    <h2 class="section-title">Experiencia Profesional</h2>
+    <div class="section-label" data-i18n="exp.label">Trayectoria</div>
+    <h2 class="section-title" data-i18n="exp.title">Experiencia Profesional</h2>
     <div class="timeline reveal">
 
       <div class="timeline-item">
@@ -604,15 +554,15 @@
         <div class="exp-card">
           <div class="exp-header">
             <div>
-              <div class="exp-role">Content Specialist</div>
-              <div class="exp-company">ORBIDI</div>
+              <div class="exp-role" data-i18n="job1.role">Content Specialist</div>
+              <div class="exp-company">ORBIDI — <span data-i18n="job.agency">Agencia de Marketing Digital</span></div>
             </div>
-            <div class="exp-period">Nov 2025 – Presente</div>
+            <div class="exp-period" data-i18n="job1.period">Nov 2025 – Presente</div>
           </div>
           <ul class="exp-bullets">
-            <li>Creación y redacción de contenidos estratégicos (web, blogs, RRSS) alineados a objetivos de negocio y SEO on-page</li>
-            <li>Gestión de calendario editorial y optimización de perfiles Google My Business con Meta Business Suite y Metricool</li>
-            <li>Diseño y administración de campañas Meta Ads: segmentación avanzada, resolución de incidencias técnicas y optimización continua para maximizar ROAS</li>
+            <li><span data-i18n="job1.b1">Creación y redacción de contenidos estratégicos (web, blogs, RRSS) alineados a objetivos de negocio y SEO on-page</span></li>
+            <li><span data-i18n="job1.b2">Gestión de calendario editorial y optimización de perfiles Google My Business con Meta Business Suite y Metricool</span></li>
+            <li><span data-i18n="job1.b3">Diseño y administración de campañas Meta Ads: segmentación avanzada, resolución de incidencias técnicas y optimización continua para maximizar ROAS</span></li>
           </ul>
         </div>
       </div>
@@ -623,14 +573,14 @@
           <div class="exp-header">
             <div>
               <div class="exp-role">SEO Specialist</div>
-              <div class="exp-company">ORBIDI</div>
+              <div class="exp-company">ORBIDI — <span data-i18n="job.agency">Agencia de Marketing Digital</span></div>
             </div>
-            <div class="exp-period">Oct 2024 – Nov 2025</div>
+            <div class="exp-period" data-i18n="job2.period">Oct 2024 – Nov 2025</div>
           </div>
           <ul class="exp-bullets">
-            <li>Auditorías SEO técnicas, de contenido y de enlaces para identificar y corregir factores que limitaban el posicionamiento orgánico</li>
-            <li>Keyword Research estratégico y optimización on-page (meta tags, estructura de encabezados, velocidad de página) alineada con Core Web Vitals</li>
-            <li>Estrategias de Link Building orientadas a fortalecer la autoridad de dominio y mejorar posiciones en SERPs — logro: <strong>+40% visibilidad orgánica</strong></li>
+            <li><span data-i18n="job2.b1">Auditorías SEO técnicas, de contenido y de enlaces para identificar y corregir factores que limitaban el posicionamiento orgánico</span></li>
+            <li><span data-i18n="job2.b2">Keyword Research estratégico y optimización on-page (meta tags, estructura de encabezados, velocidad de página) alineada con Core Web Vitals</span></li>
+            <li><span data-i18n="job2.b3">Estrategias de Link Building orientadas a fortalecer la autoridad de dominio y mejorar posiciones en SERPs — logro: <strong>+40% visibilidad orgánica</strong></span></li>
           </ul>
         </div>
       </div>
@@ -643,12 +593,12 @@
               <div class="exp-role">WordPress Developer</div>
               <div class="exp-company">OutMktg — Miami, FL</div>
             </div>
-            <div class="exp-period">May 2023 – Jul 2024</div>
+            <div class="exp-period" data-i18n="job3.period">May 2023 – Jul 2024</div>
           </div>
           <ul class="exp-bullets">
-            <li>Desarrollo y mantenimiento del sitio web corporativo con enfoque en velocidad de carga (Core Web Vitals) y tráfico orgánico</li>
-            <li>Implementación de estrategias SEO móvil que mejoraron las conversiones en dispositivos en más de un <strong>+20%</strong></li>
-            <li>Gestión de campañas Meta Ads y Google Ads optimizando el retorno sobre inversión publicitaria (ROI/ROAS)</li>
+            <li><span data-i18n="job3.b1">Desarrollo y mantenimiento del sitio web corporativo con enfoque en velocidad de carga (Core Web Vitals) y tráfico orgánico</span></li>
+            <li><span data-i18n="job3.b2">Implementación de estrategias SEO móvil que mejoraron las conversiones en dispositivos en más de un <strong>+20%</strong></span></li>
+            <li><span data-i18n="job3.b3">Gestión de campañas Meta Ads y Google Ads optimizando el retorno sobre inversión publicitaria (ROI/ROAS)</span></li>
           </ul>
         </div>
       </div>
@@ -658,15 +608,15 @@
         <div class="exp-card">
           <div class="exp-header">
             <div>
-              <div class="exp-role">Analista Web</div>
-              <div class="exp-company">Oh Lala! Beauty Bar — Cali</div>
+              <div class="exp-role" data-i18n="job4.role">Analista Web</div>
+              <div class="exp-company">Oh Lala! Beauty Bar — Cali, Colombia</div>
             </div>
-            <div class="exp-period">Feb 2024 – Oct 2024</div>
+            <div class="exp-period" data-i18n="job4.period">Feb 2024 – Oct 2024</div>
           </div>
           <ul class="exp-bullets">
-            <li>Desarrollo y optimización del sitio web corporativo: velocidad de carga, UX y tráfico orgánico</li>
-            <li>Liderazgo de estrategias SEO y experiencia móvil con mejoras medibles en conversiones</li>
-            <li>Gestión integral de campañas Meta Ads y Google Ads, optimizando la inversión publicitaria</li>
+            <li><span data-i18n="job4.b1">Desarrollo y optimización del sitio web corporativo: velocidad de carga, UX y tráfico orgánico</span></li>
+            <li><span data-i18n="job4.b2">Liderazgo de estrategias SEO y experiencia móvil con mejoras medibles en conversiones</span></li>
+            <li><span data-i18n="job4.b3">Gestión integral de campañas Meta Ads y Google Ads, optimizando la inversión publicitaria</span></li>
           </ul>
         </div>
       </div>
@@ -677,14 +627,14 @@
           <div class="exp-header">
             <div>
               <div class="exp-role">Community Manager</div>
-              <div class="exp-company">Aspaen Colombia — Cali</div>
+              <div class="exp-company">Aspaen Colombia — Cali, Colombia</div>
             </div>
-            <div class="exp-period">Nov 2018 – May 2023</div>
+            <div class="exp-period" data-i18n="job5.period">Nov 2018 – May 2023</div>
           </div>
           <ul class="exp-bullets">
-            <li>Creación de contenido estratégico y campañas sociales que incrementaron el engagement de la comunidad en un <strong>35%</strong></li>
-            <li>Diseño y ejecución de estrategia editorial para fortalecer la cohesión de marca y el tráfico a canales digitales</li>
-            <li>Gestión del calendario editorial e interacción con la comunidad para fomentar fidelización y mejorar conversión</li>
+            <li><span data-i18n="job5.b1">Creación de contenido estratégico y campañas sociales que incrementaron el engagement de la comunidad en un <strong>35%</strong></span></li>
+            <li><span data-i18n="job5.b2">Diseño y ejecución de estrategia editorial para fortalecer la cohesión de marca y el tráfico a canales digitales</span></li>
+            <li><span data-i18n="job5.b3">Gestión del calendario editorial e interacción con la comunidad para fomentar fidelización y mejorar conversión</span></li>
           </ul>
         </div>
       </div>
@@ -698,14 +648,14 @@
 <!-- SKILLS -->
 <section id="skills">
   <div class="container">
-    <div class="section-label">Habilidades</div>
-    <h2 class="section-title">Stack Tecnológico</h2>
+    <div class="section-label" data-i18n="skills.label">Habilidades</div>
+    <h2 class="section-title" data-i18n="skills.title">Stack Tecnológico</h2>
     <div class="skills-wrapper reveal">
 
       <div class="skill-category">
         <div class="skill-cat-title"><span class="skill-cat-icon">🔍</span> SEO / SEM</div>
         <div class="skill-tags">
-          <span class="skill-tag">Auditoría técnica</span>
+          <span class="skill-tag" data-i18n="sk.audit">Auditoría técnica</span>
           <span class="skill-tag">Keyword Research</span>
           <span class="skill-tag">Link Building</span>
           <span class="skill-tag">Google Search Console</span>
@@ -730,7 +680,7 @@
           <span class="skill-tag">WordPress</span>
           <span class="skill-tag">Elementor</span>
           <span class="skill-tag">HTML / CSS</span>
-          <span class="skill-tag">PHP básico</span>
+          <span class="skill-tag" data-i18n="sk.php">PHP básico</span>
           <span class="skill-tag">Core Web Vitals</span>
           <span class="skill-tag">WooCommerce</span>
         </div>
@@ -759,11 +709,11 @@
       </div>
 
       <div class="skill-category">
-        <div class="skill-cat-title"><span class="skill-cat-icon">⚡</span> Metodologías</div>
+        <div class="skill-cat-title"><span class="skill-cat-icon">⚡</span><span data-i18n="sk.methods.title">Metodologías</span></div>
         <div class="skill-tags">
           <span class="skill-tag">Agile / Scrum</span>
-          <span class="skill-tag">Gestión de proyectos multimedia</span>
-          <span class="skill-tag">Liderazgo de equipos creativos</span>
+          <span class="skill-tag" data-i18n="sk.proj">Gestión de proyectos multimedia</span>
+          <span class="skill-tag" data-i18n="sk.lead">Liderazgo de equipos creativos</span>
         </div>
       </div>
 
@@ -776,52 +726,48 @@
 <!-- EDUCATION & CERTS -->
 <section id="education">
   <div class="container">
-    <div class="section-label">Formación</div>
-    <h2 class="section-title">Educación &amp; Certificaciones</h2>
+    <div class="section-label" data-i18n="edu.label">Formación</div>
+    <h2 class="section-title" data-i18n="edu.title">Educación &amp; Certificaciones</h2>
     <div class="edu-cert-grid reveal">
 
       <div class="edu-card">
-        <div class="edu-degree">Ingeniería Multimedia</div>
+        <div class="edu-degree" data-i18n="edu.degree">Ingeniería Multimedia</div>
         <div class="edu-inst">Universidad de San Buenaventura de Cali</div>
-        <div class="edu-period">Jul 2014 – Mar 2020</div>
-        <div class="edu-focus">Diseño web · Diseño gráfico · Interfaces de usuario. Proyectos destacados: creación de interfaces UX innovadoras y proyectos aplicados de desarrollo web.</div>
+        <div class="edu-period">2014 – 2020</div>
+        <div class="edu-focus" data-i18n="edu.focus">Diseño web · Diseño gráfico · Interfaces de usuario. Proyectos destacados: creación de interfaces UX innovadoras y proyectos aplicados de desarrollo web.</div>
       </div>
 
       <div class="cert-card">
-        <p style="font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1.25rem;">Certificaciones</p>
+        <p style="font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1.25rem;" data-i18n="cert.title">Certificaciones</p>
         <ul class="cert-list">
           <li class="cert-item">
             <span class="cert-badge">🤖</span>
             <div>
-              <div style="font-weight:600;color:var(--text-main);">IA para Content Marketing — Platzi</div>
-              <div style="font-size:.78rem;color:var(--text-muted);">Abril 2026 · 9 horas</div>
+              <div style="font-weight:600;color:var(--text-main);" data-i18n="cert.ia.content">IA para Content Marketing — Platzi</div>
+              <div style="font-size:.78rem;color:var(--text-muted);" data-i18n="cert.ia.content.date">Abril 2026 · 9 horas</div>
             </div>
           </li>
           <li class="cert-item">
             <span class="cert-badge">🤖</span>
             <div>
-              <div style="font-weight:600;color:var(--text-main);">IA para SEO — Platzi</div>
-              <div style="font-size:.78rem;color:var(--text-muted);">Abril 2026 · 8 horas</div>
+              <div style="font-weight:600;color:var(--text-main);" data-i18n="cert.ia.seo">IA para SEO — Platzi</div>
+              <div style="font-size:.78rem;color:var(--text-muted);" data-i18n="cert.ia.seo.date">Abril 2026 · 8 horas</div>
             </div>
           </li>
           <li class="cert-item">
             <span class="cert-badge">⚡</span>
             <div>
               <div style="font-weight:600;color:var(--text-main);">Prompt Engineering — Platzi</div>
-              <div style="font-size:.78rem;color:var(--text-muted);">Mayo 2026 · 13 horas</div>
+              <div style="font-size:.78rem;color:var(--text-muted);" data-i18n="cert.prompt.date">Mayo 2026 · 13 horas</div>
             </div>
           </li>
           <li class="cert-item">
             <span class="cert-badge">🎓</span>
-            <div>
-              <div style="font-weight:600;color:var(--text-main);">Google Ads — NextU</div>
-            </div>
+            <div><div style="font-weight:600;color:var(--text-main);">Google Ads — NextU</div></div>
           </li>
           <li class="cert-item">
             <span class="cert-badge">🎓</span>
-            <div>
-              <div style="font-weight:600;color:var(--text-main);">Meta Ads — Platzi</div>
-            </div>
+            <div><div style="font-weight:600;color:var(--text-main);">Meta Ads — Platzi</div></div>
           </li>
         </ul>
       </div>
@@ -835,13 +781,13 @@
 <!-- CONTACT -->
 <section id="contact" style="background: linear-gradient(135deg,rgba(79,110,247,.04) 0%,rgba(139,92,246,.04) 50%,rgba(6,182,212,.04) 100%);">
   <div class="container" style="text-align:center; max-width:600px;">
-    <div class="section-label" style="justify-content:center;">Contacto</div>
-    <h2 class="section-title reveal" style="margin-bottom:1rem;">¿Listo para trabajar juntos?</h2>
-    <p class="reveal" style="color:var(--text-sub);margin-bottom:2rem;font-size:.95rem;">
+    <div class="section-label" style="justify-content:center;" data-i18n="contact.label">Contacto</div>
+    <h2 class="section-title reveal" style="margin-bottom:1rem;" data-i18n="contact.title">¿Listo para trabajar juntos?</h2>
+    <p class="reveal" style="color:var(--text-sub);margin-bottom:2rem;font-size:.95rem;" data-i18n="contact.text">
       Estoy disponible para proyectos freelance, posiciones full-time y colaboraciones estratégicas.
     </p>
     <div class="reveal" style="display:flex;flex-direction:column;gap:1rem;align-items:center;">
-      <a href="mailto:jhonjairovega96@gmail.com" class="btn-primary" style="font-size:1rem;padding:.9rem 2.2rem;">
+      <a href="mailto:jhonjairovega96@gmail.com" class="btn-primary" style="font-size:1rem;padding:.9rem 2.2rem;" data-i18n="contact.cta">
         Enviar un mensaje ✉️
       </a>
       <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:.5rem;">
@@ -858,7 +804,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <strong>Jhon Jairo Vega</strong> — Ingeniero Multimedia | Digital Marketing &amp; SEO Specialist | WordPress Developer<br />
+  <strong>Jhon Jairo Vega</strong> — <span data-i18n="footer.role">Ingeniero Multimedia | Digital Marketing &amp; SEO Specialist | WordPress Developer</span><br />
   <div class="footer-links">
     <a href="mailto:jhonjairovega96@gmail.com">jhonjairovega96@gmail.com</a>
     <a href="tel:+573008113078">(300) 811-3078</a>
@@ -867,13 +813,228 @@
 </footer>
 
 <script>
-  // Nav scroll effect
+  /* ── TRANSLATIONS ── */
+  const t = {
+    es: {
+      'nav.about':        'Perfil',
+      'nav.experience':   'Experiencia',
+      'nav.skills':       'Habilidades',
+      'nav.education':    'Educación',
+      'nav.contact':      'Contacto',
+      'hero.badge':       'Disponible para reubicación',
+      'hero.subtitle':    'Ingeniero Multimedia &nbsp;·&nbsp; Digital Marketing &amp; SEO Specialist &nbsp;·&nbsp; WordPress Developer',
+      'hero.cta.primary': 'Contáctame',
+      'hero.cta.secondary':'Ver experiencia',
+      'hero.scroll':      'scroll',
+      'stat.seo':         'Visibilidad SEO orgánica',
+      'stat.engagement':  'Engagement en campañas digitales',
+      'stat.bounce':      'Tasa de rebote reducida',
+      'stat.websites':    'Sitios web lanzados a tiempo',
+      'stat.conversions': 'Conversiones en dispositivos móviles',
+      'about.label':      'Sobre mí',
+      'about.title':      'Perfil Profesional',
+      'about.text':       'Ingeniero Multimedia con más de <strong>5 años de experiencia</strong> desarrollando ecosistemas digitales de alto impacto. Especialista en <strong>SEO técnico y on-page</strong>, desarrollo <strong>WordPress</strong>, marketing de contenidos y campañas pagadas (<strong>Meta Ads / Google Ads</strong>).<br /><br />Historial comprobado de incrementar la visibilidad orgánica hasta un <strong>40%</strong>, reducir la tasa de rebote en <strong>25%</strong> y aumentar conversiones en <strong>20%</strong>. Bilingüe (ES/EN – B2), orientado a datos y con sólida capacidad de liderazgo de equipos creativos bajo metodologías ágiles.',
+      'about.spec.title': 'Especializaciones',
+      'lang.spanish':     'Español',
+      'lang.english':     'Inglés',
+      'lang.native':      'Nativo',
+      'lang.advanced':    'Avanzado',
+      'spec.1':           'SEO Técnico &amp; On-Page',
+      'spec.2':           'WordPress Development &amp; WooCommerce',
+      'spec.3':           'Campañas Meta Ads &amp; Google Ads',
+      'spec.4':           'Marketing de Contenidos &amp; Editorial',
+      'spec.5':           'Web Analytics — GA4, GTM, Looker Studio',
+      'spec.6':           'UX/UI Design &amp; Producción Multimedia',
+      'ach.label':        'Logros',
+      'ach.title':        'Resultados medibles',
+      'ach.1':            'Visibilidad SEO orgánica mediante estrategias de Link Building y optimización on-page',
+      'ach.2':            'Engagement en campañas digitales de Meta Ads y Google Ads',
+      'ach.3':            'Tasa de rebote reducida con mejoras de UX y velocidad de carga',
+      'ach.4':            'Sitios web lanzados a tiempo y dentro del presupuesto',
+      'ach.5':            'Conversiones en dispositivos móviles con SEO móvil y Core Web Vitals',
+      'exp.label':        'Trayectoria',
+      'exp.title':        'Experiencia Profesional',
+      'job.agency':       'Agencia de Marketing Digital',
+      'job1.role':        'Content Specialist',
+      'job1.period':      'Nov 2025 – Presente',
+      'job1.b1':          'Creación y redacción de contenidos estratégicos (web, blogs, RRSS) alineados a objetivos de negocio y SEO on-page',
+      'job1.b2':          'Gestión de calendario editorial y optimización de perfiles Google My Business con Meta Business Suite y Metricool',
+      'job1.b3':          'Diseño y administración de campañas Meta Ads: segmentación avanzada, resolución de incidencias técnicas y optimización continua para maximizar ROAS',
+      'job2.period':      'Oct 2024 – Nov 2025',
+      'job2.b1':          'Auditorías SEO técnicas, de contenido y de enlaces para identificar y corregir factores que limitaban el posicionamiento orgánico',
+      'job2.b2':          'Keyword Research estratégico y optimización on-page (meta tags, estructura de encabezados, velocidad de página) alineada con Core Web Vitals',
+      'job2.b3':          'Estrategias de Link Building orientadas a fortalecer la autoridad de dominio y mejorar posiciones en SERPs — logro: <strong>+40% visibilidad orgánica</strong>',
+      'job3.period':      'May 2023 – Jul 2024',
+      'job3.b1':          'Desarrollo y mantenimiento del sitio web corporativo con enfoque en velocidad de carga (Core Web Vitals) y tráfico orgánico',
+      'job3.b2':          'Implementación de estrategias SEO móvil que mejoraron las conversiones en dispositivos en más de un <strong>+20%</strong>',
+      'job3.b3':          'Gestión de campañas Meta Ads y Google Ads optimizando el retorno sobre inversión publicitaria (ROI/ROAS)',
+      'job4.role':        'Analista Web',
+      'job4.period':      'Feb 2024 – Oct 2024',
+      'job4.b1':          'Desarrollo y optimización del sitio web corporativo: velocidad de carga, UX y tráfico orgánico',
+      'job4.b2':          'Liderazgo de estrategias SEO y experiencia móvil con mejoras medibles en conversiones',
+      'job4.b3':          'Gestión integral de campañas Meta Ads y Google Ads, optimizando la inversión publicitaria',
+      'job5.period':      'Nov 2018 – May 2023',
+      'job5.b1':          'Creación de contenido estratégico y campañas sociales que incrementaron el engagement de la comunidad en un <strong>35%</strong>',
+      'job5.b2':          'Diseño y ejecución de estrategia editorial para fortalecer la cohesión de marca y el tráfico a canales digitales',
+      'job5.b3':          'Gestión del calendario editorial e interacción con la comunidad para fomentar fidelización y mejorar conversión',
+      'skills.label':     'Habilidades',
+      'skills.title':     'Stack Tecnológico',
+      'sk.audit':         'Auditoría técnica',
+      'sk.php':           'PHP básico',
+      'sk.methods.title': 'Metodologías',
+      'sk.proj':          'Gestión de proyectos multimedia',
+      'sk.lead':          'Liderazgo de equipos creativos',
+      'edu.label':        'Formación',
+      'edu.title':        'Educación &amp; Certificaciones',
+      'edu.degree':       'Ingeniería Multimedia',
+      'edu.focus':        'Diseño web · Diseño gráfico · Interfaces de usuario. Proyectos destacados: creación de interfaces UX innovadoras y proyectos aplicados de desarrollo web.',
+      'cert.title':       'Certificaciones',
+      'cert.ia.content':  'IA para Content Marketing — Platzi',
+      'cert.ia.content.date': 'Abril 2026 · 9 horas',
+      'cert.ia.seo':      'IA para SEO — Platzi',
+      'cert.ia.seo.date': 'Abril 2026 · 8 horas',
+      'cert.prompt.date': 'Mayo 2026 · 13 horas',
+      'contact.label':    'Contacto',
+      'contact.title':    '¿Listo para trabajar juntos?',
+      'contact.text':     'Estoy disponible para proyectos freelance, posiciones full-time y colaboraciones estratégicas.',
+      'contact.cta':      'Enviar un mensaje ✉️',
+      'footer.role':      'Ingeniero Multimedia | Digital Marketing &amp; SEO Specialist | WordPress Developer',
+    },
+    en: {
+      'nav.about':        'Profile',
+      'nav.experience':   'Experience',
+      'nav.skills':       'Skills',
+      'nav.education':    'Education',
+      'nav.contact':      'Contact',
+      'hero.badge':       'Open to relocation',
+      'hero.subtitle':    'Multimedia Engineer &nbsp;·&nbsp; Digital Marketing &amp; SEO Specialist &nbsp;·&nbsp; WordPress Developer',
+      'hero.cta.primary': 'Contact Me',
+      'hero.cta.secondary':'View Experience',
+      'hero.scroll':      'scroll',
+      'stat.seo':         'Organic SEO Visibility',
+      'stat.engagement':  'Engagement in digital campaigns',
+      'stat.bounce':      'Bounce rate reduced',
+      'stat.websites':    'Websites launched on time',
+      'stat.conversions': 'Conversions on mobile devices',
+      'about.label':      'About Me',
+      'about.title':      'Professional Profile',
+      'about.text':       'Multimedia Engineer with over <strong>5 years of experience</strong> building high-impact digital ecosystems. Specialist in <strong>technical and on-page SEO</strong>, <strong>WordPress</strong> development, content marketing, and paid campaigns (<strong>Meta Ads / Google Ads</strong>).<br /><br />Proven track record of increasing organic visibility by <strong>40%</strong>, reducing bounce rate by <strong>25%</strong>, and boosting conversions by <strong>20%</strong>. Bilingual (ES/EN – B2), data-driven with strong leadership skills for creative teams using agile methodologies.',
+      'about.spec.title': 'Specializations',
+      'lang.spanish':     'Spanish',
+      'lang.english':     'English',
+      'lang.native':      'Native',
+      'lang.advanced':    'Advanced',
+      'spec.1':           'Technical &amp; On-Page SEO',
+      'spec.2':           'WordPress Development &amp; WooCommerce',
+      'spec.3':           'Meta Ads &amp; Google Ads Campaigns',
+      'spec.4':           'Content Marketing &amp; Editorial Strategy',
+      'spec.5':           'Web Analytics — GA4, GTM, Looker Studio',
+      'spec.6':           'UX/UI Design &amp; Multimedia Production',
+      'ach.label':        'Achievements',
+      'ach.title':        'Measurable Results',
+      'ach.1':            'Organic SEO visibility through Link Building and on-page optimization strategies',
+      'ach.2':            'Engagement in Meta Ads and Google Ads digital campaigns',
+      'ach.3':            'Bounce rate reduced through UX improvements and page speed optimization',
+      'ach.4':            'Websites launched on time and within budget',
+      'ach.5':            'Conversions on mobile devices through mobile SEO and Core Web Vitals',
+      'exp.label':        'Career',
+      'exp.title':        'Professional Experience',
+      'job.agency':       'Digital Marketing Agency',
+      'job1.role':        'Content Specialist',
+      'job1.period':      'Nov 2025 – Present',
+      'job1.b1':          'Creation and writing of strategic content (web, blogs, social media) aligned to business objectives and on-page SEO',
+      'job1.b2':          'Editorial calendar management and Google My Business profile optimization using Meta Business Suite and Metricool',
+      'job1.b3':          'Design and management of Meta Ads campaigns: advanced targeting, technical troubleshooting and continuous optimization to maximize ROAS',
+      'job2.period':      'Oct 2024 – Nov 2025',
+      'job2.b1':          'Technical, content, and link SEO audits to identify and fix factors limiting organic rankings',
+      'job2.b2':          'Strategic Keyword Research and on-page optimization (meta tags, heading structure, page speed) aligned with Core Web Vitals',
+      'job2.b3':          'Link Building strategies to strengthen domain authority and improve SERP positions — achievement: <strong>+40% organic visibility</strong>',
+      'job3.period':      'May 2023 – Jul 2024',
+      'job3.b1':          'Development and maintenance of the corporate website focused on load speed (Core Web Vitals) and organic traffic',
+      'job3.b2':          'Implementation of mobile SEO strategies that improved device conversions by more than <strong>+20%</strong>',
+      'job3.b3':          'Management of Meta Ads and Google Ads campaigns optimizing advertising return on investment (ROI/ROAS)',
+      'job4.role':        'Web Analyst',
+      'job4.period':      'Feb 2024 – Oct 2024',
+      'job4.b1':          'Development and optimization of the corporate website: load speed, UX and organic traffic',
+      'job4.b2':          'Leadership of SEO strategies and mobile experience with measurable improvements in conversions',
+      'job4.b3':          'Comprehensive management of Meta Ads and Google Ads campaigns, optimizing advertising investment',
+      'job5.period':      'Nov 2018 – May 2023',
+      'job5.b1':          'Creation of strategic content and social campaigns that increased community engagement by <strong>35%</strong>',
+      'job5.b2':          'Design and execution of editorial strategy to strengthen brand cohesion and digital channel traffic',
+      'job5.b3':          'Editorial calendar management and community interaction to foster loyalty and improve conversion',
+      'skills.label':     'Skills',
+      'skills.title':     'Tech Stack',
+      'sk.audit':         'Technical Audit',
+      'sk.php':           'Basic PHP',
+      'sk.methods.title': 'Methodologies',
+      'sk.proj':          'Multimedia project management',
+      'sk.lead':          'Creative team leadership',
+      'edu.label':        'Education',
+      'edu.title':        'Education &amp; Certifications',
+      'edu.degree':       'Multimedia Engineering',
+      'edu.focus':        'Web design, graphic design, and user interfaces. Featured projects: innovative UX interface design and applied web development projects.',
+      'cert.title':       'Certifications',
+      'cert.ia.content':  'AI for Content Marketing — Platzi',
+      'cert.ia.content.date': 'April 2026 · 9 hours',
+      'cert.ia.seo':      'AI for SEO — Platzi',
+      'cert.ia.seo.date': 'April 2026 · 8 hours',
+      'cert.prompt.date': 'May 2026 · 13 hours',
+      'contact.label':    'Contact',
+      'contact.title':    'Ready to work together?',
+      'contact.text':     'Available for freelance projects, full-time positions, and strategic collaborations.',
+      'contact.cta':      'Send a message ✉️',
+      'footer.role':      'Multimedia Engineer | Digital Marketing &amp; SEO Specialist | WordPress Developer',
+    }
+  };
+
+  let currentLang = 'es';
+
+  function applyLang(lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (t[lang][key] !== undefined) el.textContent = t[lang][key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      if (t[lang][key] !== undefined) el.innerHTML = t[lang][key];
+    });
+    /* special: hero subtitle has &nbsp; — use innerHTML */
+    const sub = document.querySelector('.hero-sub[data-i18n]');
+    if (sub && t[lang][sub.getAttribute('data-i18n')]) {
+      sub.innerHTML = t[lang][sub.getAttribute('data-i18n')];
+    }
+    /* job bullets contain <strong> tags */
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      const val = t[lang][key];
+      if (val && val.includes('<')) el.innerHTML = val;
+    });
+    /* toggle button */
+    if (lang === 'es') {
+      document.getElementById('langFlag').textContent  = '🇺🇸';
+      document.getElementById('langLabel').textContent = 'EN';
+    } else {
+      document.getElementById('langFlag').textContent  = '🇨🇴';
+      document.getElementById('langLabel').textContent = 'ES';
+    }
+    document.title = lang === 'es'
+      ? 'Jhon Jairo Vega — Ingeniero Multimedia | Digital Marketing & SEO Specialist'
+      : 'Jhon Jairo Vega — Multimedia Engineer | Digital Marketing & SEO Specialist';
+  }
+
+  function toggleLang() {
+    currentLang = currentLang === 'es' ? 'en' : 'es';
+    applyLang(currentLang);
+  }
+
+  /* ── NAV SCROLL ── */
   const nav = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 20);
   }, { passive: true });
 
-  // Reveal on scroll
+  /* ── REVEAL ON SCROLL ── */
   const reveals = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
@@ -882,7 +1043,7 @@
   }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
   reveals.forEach(el => io.observe(el));
 
-  // Stagger children in grids
+  /* ── STAGGER GRID CHILDREN ── */
   document.querySelectorAll('.stats-grid, .ach-grid, .skills-wrapper').forEach(grid => {
     [...grid.children].forEach((child, i) => {
       child.style.transitionDelay = `${i * 80}ms`;
