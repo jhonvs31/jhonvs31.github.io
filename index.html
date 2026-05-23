@@ -298,6 +298,110 @@
     }
     .skill-tag:hover { background: rgba(79,110,247,.08); border-color: rgba(79,110,247,.3); color: var(--accent); transform: translateY(-1px); }
 
+    /* ── PORTFOLIO ── */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+    .portfolio-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      transition: transform .25s, box-shadow .25s;
+      display: flex; flex-direction: column;
+    }
+    .portfolio-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .portfolio-card-top {
+      height: 110px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem; position: relative;
+    }
+    .portfolio-cat-badge {
+      position: absolute; top: .6rem; right: .6rem;
+      font-size: .68rem; font-weight: 700; letter-spacing: .06em;
+      text-transform: uppercase; padding: .2rem .6rem;
+      border-radius: 99px; color: #fff;
+    }
+    .badge-social  { background: #8b5cf6; }
+    .badge-web     { background: #06b6d4; }
+    .badge-brand   { background: #f59e0b; }
+    .badge-intl    { background: #10b981; }
+    .portfolio-card-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; gap: .5rem; }
+    .portfolio-client { font-size: 1rem; font-weight: 700; color: var(--text-main); }
+    .portfolio-location { font-size: .78rem; color: var(--text-muted); display: flex; align-items: center; gap: .3rem; }
+    .portfolio-services { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .25rem; }
+    .portfolio-service-tag {
+      font-size: .72rem; font-weight: 500; padding: .2rem .6rem;
+      border-radius: 99px; background: var(--bg); border: 1px solid var(--border);
+      color: var(--text-sub);
+    }
+    .portfolio-cta {
+      margin-top: auto; padding: .6rem 1.25rem;
+      text-align: center; font-size: .82rem; font-weight: 600;
+      color: var(--accent); border-top: 1px solid var(--border);
+      transition: background .2s;
+    }
+    .portfolio-card:hover .portfolio-cta { background: rgba(79,110,247,.05); }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 500;
+      background: rgba(26,29,46,.55);
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 1rem;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s ease;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal {
+      background: var(--surface); border-radius: var(--radius);
+      max-width: 540px; width: 100%;
+      box-shadow: var(--shadow-lg);
+      transform: translateY(24px) scale(.97);
+      transition: transform .35s cubic-bezier(.34,1.56,.64,1);
+      overflow: hidden;
+    }
+    .modal-overlay.open .modal { transform: none; }
+    .modal-header {
+      padding: 1.75rem 1.75rem 1rem;
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem;
+    }
+    .modal-icon { font-size: 2.8rem; line-height: 1; }
+    .modal-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin-bottom: .25rem; }
+    .modal-location { font-size: .82rem; color: var(--text-muted); display: flex; align-items: center; gap: .3rem; }
+    .modal-close {
+      width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid var(--border);
+      background: var(--bg); cursor: pointer; font-size: 1.1rem;
+      display: grid; place-items: center; flex-shrink: 0;
+      transition: background .2s, border-color .2s;
+      color: var(--text-sub);
+    }
+    .modal-close:hover { background: var(--border); border-color: var(--text-muted); }
+    .modal-divider { height: 1px; background: var(--border); margin: 0 1.75rem; }
+    .modal-body { padding: 1.25rem 1.75rem 1.75rem; }
+    .modal-section-title {
+      font-size: .72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .12em; color: var(--accent); margin-bottom: .85rem;
+    }
+    .modal-service-list { list-style: none; display: flex; flex-direction: column; gap: .55rem; }
+    .modal-service-list li {
+      display: flex; align-items: center; gap: .65rem;
+      font-size: .9rem; color: var(--text-sub);
+    }
+    .modal-service-list li::before {
+      content: ''; width: 7px; height: 7px; border-radius: 50%;
+      background: var(--gradient); flex-shrink: 0;
+    }
+    .modal-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.25rem; }
+    .modal-tag {
+      font-size: .76rem; font-weight: 600; padding: .3rem .8rem; border-radius: 99px;
+      background: rgba(79,110,247,.08); color: var(--accent);
+      border: 1px solid rgba(79,110,247,.2);
+    }
+
     /* ── EDUCATION / CERTS ── */
     .edu-cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
     .edu-card, .cert-card {
@@ -388,6 +492,7 @@
       <li><a href="#about"      data-i18n="nav.about">Perfil</a></li>
       <li><a href="#experience" data-i18n="nav.experience">Experiencia</a></li>
       <li><a href="#skills"     data-i18n="nav.skills">Habilidades</a></li>
+      <li><a href="#portfolio"  data-i18n="nav.portfolio">Portafolio</a></li>
       <li><a href="#education"  data-i18n="nav.education">Educación</a></li>
       <li><a href="#contact"    data-i18n="nav.contact">Contacto</a></li>
     </ul>
@@ -723,6 +828,210 @@
 
 <div class="section-divider"></div>
 
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="container">
+    <div class="section-label" data-i18n="port.label">Portafolio</div>
+    <h2 class="section-title" data-i18n="port.title">Proyectos Destacados</h2>
+    <div class="portfolio-grid reveal">
+
+      <div class="portfolio-card" onclick="openModal('caracoli')">
+        <div class="portfolio-card-top" style="background:linear-gradient(135deg,#fdf2f8,#fce7f3);">
+          🧁
+          <span class="portfolio-cat-badge badge-social" data-i18n="badge.social">Social Media</span>
+        </div>
+        <div class="portfolio-card-body">
+          <div class="portfolio-client">Caracolí Pastelería</div>
+          <div class="portfolio-location">📍 Cali, Colombia</div>
+          <div class="portfolio-services">
+            <span class="portfolio-service-tag" data-i18n="svc.content">Contenido</span>
+            <span class="portfolio-service-tag" data-i18n="svc.social">Redes Sociales</span>
+            <span class="portfolio-service-tag" data-i18n="svc.video">Video</span>
+          </div>
+        </div>
+        <div class="portfolio-cta" data-i18n="port.see">Ver proyecto →</div>
+      </div>
+
+      <div class="portfolio-card" onclick="openModal('aspaen')">
+        <div class="portfolio-card-top" style="background:linear-gradient(135deg,#eff6ff,#dbeafe);">
+          🎓
+          <span class="portfolio-cat-badge badge-social" data-i18n="badge.social">Social Media</span>
+        </div>
+        <div class="portfolio-card-body">
+          <div class="portfolio-client">Aspaen Colombia</div>
+          <div class="portfolio-location">📍 Cali, Colombia</div>
+          <div class="portfolio-services">
+            <span class="portfolio-service-tag" data-i18n="svc.content">Contenido</span>
+            <span class="portfolio-service-tag" data-i18n="svc.social">Redes Sociales</span>
+            <span class="portfolio-service-tag" data-i18n="svc.photo">Fotografía</span>
+          </div>
+        </div>
+        <div class="portfolio-cta" data-i18n="port.see">Ver proyecto →</div>
+      </div>
+
+      <div class="portfolio-card" onclick="openModal('campofresco')">
+        <div class="portfolio-card-top" style="background:linear-gradient(135deg,#fef9ee,#fef3c7);">
+          🥩
+          <span class="portfolio-cat-badge badge-social" data-i18n="badge.social">Social Media</span>
+        </div>
+        <div class="portfolio-card-body">
+          <div class="portfolio-client">Campo Fresco</div>
+          <div class="portfolio-location">📍 Cali, Colombia</div>
+          <div class="portfolio-services">
+            <span class="portfolio-service-tag" data-i18n="svc.content">Contenido</span>
+            <span class="portfolio-service-tag" data-i18n="svc.social">Redes Sociales</span>
+            <span class="portfolio-service-tag" data-i18n="svc.video">Video</span>
+          </div>
+        </div>
+        <div class="portfolio-cta" data-i18n="port.see">Ver proyecto →</div>
+      </div>
+
+      <div class="portfolio-card" onclick="openModal('marca')">
+        <div class="portfolio-card-top" style="background:linear-gradient(135deg,#fffbeb,#fde68a);">
+          ✏️
+          <span class="portfolio-cat-badge badge-brand" data-i18n="badge.brand">Branding</span>
+        </div>
+        <div class="portfolio-card-body">
+          <div class="portfolio-client" data-i18n="proj.marca.client">Creación de Marca</div>
+          <div class="portfolio-location">📍 Medellín, Colombia</div>
+          <div class="portfolio-services">
+            <span class="portfolio-service-tag" data-i18n="svc.brand">Identidad Visual</span>
+            <span class="portfolio-service-tag" data-i18n="svc.logo">Logotipo</span>
+          </div>
+        </div>
+        <div class="portfolio-cta" data-i18n="port.see">Ver proyecto →</div>
+      </div>
+
+      <div class="portfolio-card" onclick="openModal('siamco')">
+        <div class="portfolio-card-top" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);">
+          🏗️
+          <span class="portfolio-cat-badge badge-social" data-i18n="badge.social">Social Media</span>
+        </div>
+        <div class="portfolio-card-body">
+          <div class="portfolio-client">Siamco Ingenierías</div>
+          <div class="portfolio-location">📍 Cali, Colombia</div>
+          <div class="portfolio-services">
+            <span class="portfolio-service-tag" data-i18n="svc.content">Contenido</span>
+            <span class="portfolio-service-tag" data-i18n="svc.social">Redes Sociales</span>
+            <span class="portfolio-service-tag" data-i18n="svc.photo">Fotografía</span>
+          </div>
+        </div>
+        <div class="portfolio-cta" data-i18n="port.see">Ver proyecto →</div>
+      </div>
+
+      <div class="portfolio-card" onclick="openModal('monica')">
+        <div class="portfolio-card-top" style="background:linear-gradient(135deg,#f0fdf4,#ccfbf1);">
+          🧠
+          <span class="portfolio-cat-badge badge-web" data-i18n="badge.web">Web Design</span>
+        </div>
+        <div class="portfolio-card-body">
+          <div class="portfolio-client">Mónica Muñoz</div>
+          <div class="portfolio-location">📍 Cali, Colombia</div>
+          <div class="portfolio-services">
+            <span class="portfolio-service-tag" data-i18n="svc.webdesign">Diseño Web</span>
+            <span class="portfolio-service-tag" data-i18n="svc.webcontent">Contenido Web</span>
+            <span class="portfolio-service-tag" data-i18n="svc.video">Video</span>
+          </div>
+        </div>
+        <div class="portfolio-cta" data-i18n="port.see">Ver proyecto →</div>
+      </div>
+
+      <div class="portfolio-card" onclick="openModal('cedecur')">
+        <div class="portfolio-card-top" style="background:linear-gradient(135deg,#ecfdf5,#d1fae5);">
+          🌿
+          <span class="portfolio-cat-badge badge-web" data-i18n="badge.web">Web Design</span>
+        </div>
+        <div class="portfolio-card-body">
+          <div class="portfolio-client">Cedecur</div>
+          <div class="portfolio-location">📍 Cali, Colombia</div>
+          <div class="portfolio-services">
+            <span class="portfolio-service-tag" data-i18n="svc.webdesign">Diseño Web</span>
+            <span class="portfolio-service-tag" data-i18n="svc.webcontent">Contenido Web</span>
+            <span class="portfolio-service-tag" data-i18n="svc.photo">Fotografía</span>
+          </div>
+        </div>
+        <div class="portfolio-cta" data-i18n="port.see">Ver proyecto →</div>
+      </div>
+
+      <div class="portfolio-card" onclick="openModal('ibvc')">
+        <div class="portfolio-card-top" style="background:linear-gradient(135deg,#eff6ff,#e0f2fe);">
+          ⚡
+          <span class="portfolio-cat-badge badge-web" data-i18n="badge.web">Web Design</span>
+        </div>
+        <div class="portfolio-card-body">
+          <div class="portfolio-client">IbVC Momentum</div>
+          <div class="portfolio-location">📍 Bogotá, Colombia</div>
+          <div class="portfolio-services">
+            <span class="portfolio-service-tag" data-i18n="svc.webdesign">Diseño Web</span>
+            <span class="portfolio-service-tag" data-i18n="svc.webcontent">Contenido Web</span>
+            <span class="portfolio-service-tag" data-i18n="svc.video">Video</span>
+          </div>
+        </div>
+        <div class="portfolio-cta" data-i18n="port.see">Ver proyecto →</div>
+      </div>
+
+      <div class="portfolio-card" onclick="openModal('yamefui')">
+        <div class="portfolio-card-top" style="background:linear-gradient(135deg,#fefce8,#fef9c3);">
+          ✈️
+          <span class="portfolio-cat-badge badge-intl" data-i18n="badge.intl">Internacional</span>
+        </div>
+        <div class="portfolio-card-body">
+          <div class="portfolio-client">Ya me fui</div>
+          <div class="portfolio-location">🌎 México</div>
+          <div class="portfolio-services">
+            <span class="portfolio-service-tag" data-i18n="svc.webdesign">Diseño Web</span>
+            <span class="portfolio-service-tag" data-i18n="svc.webcontent">Contenido Web</span>
+            <span class="portfolio-service-tag" data-i18n="svc.video">Video</span>
+          </div>
+        </div>
+        <div class="portfolio-cta" data-i18n="port.see">Ver proyecto →</div>
+      </div>
+
+      <div class="portfolio-card" onclick="openModal('hr')">
+        <div class="portfolio-card-top" style="background:linear-gradient(135deg,#f8fafc,#e2e8f0);">
+          🏢
+          <span class="portfolio-cat-badge badge-intl" data-i18n="badge.intl">Internacional</span>
+        </div>
+        <div class="portfolio-card-body">
+          <div class="portfolio-client">HR Unlimited</div>
+          <div class="portfolio-location">🌎 EEUU</div>
+          <div class="portfolio-services">
+            <span class="portfolio-service-tag" data-i18n="svc.webdesign">Diseño Web</span>
+            <span class="portfolio-service-tag" data-i18n="svc.webcontent">Contenido Web</span>
+            <span class="portfolio-service-tag" data-i18n="svc.photo">Fotografía</span>
+          </div>
+        </div>
+        <div class="portfolio-cta" data-i18n="port.see">Ver proyecto →</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div style="display:flex;align-items:flex-start;gap:1rem;">
+        <div class="modal-icon" id="modalIcon"></div>
+        <div>
+          <div class="modal-title" id="modalTitle"></div>
+          <div class="modal-location" id="modalLocation"></div>
+        </div>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-divider"></div>
+    <div class="modal-body">
+      <div class="modal-section-title" data-i18n="modal.services">Trabajo Realizado</div>
+      <ul class="modal-service-list" id="modalServices"></ul>
+      <div class="modal-tags" id="modalTags"></div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
 <!-- EDUCATION & CERTS -->
 <section id="education">
   <div class="container">
@@ -899,6 +1208,24 @@
       'contact.text':     'Estoy disponible para proyectos freelance, posiciones full-time y colaboraciones estratégicas.',
       'contact.cta':      'Enviar un mensaje ✉️',
       'footer.role':      'Ingeniero Multimedia | Digital Marketing &amp; SEO Specialist | WordPress Developer',
+      'nav.portfolio':    'Portafolio',
+      'port.label':       'Portafolio',
+      'port.title':       'Proyectos Destacados',
+      'port.see':         'Ver proyecto →',
+      'badge.social':     'Social Media',
+      'badge.web':        'Web Design',
+      'badge.brand':      'Branding',
+      'badge.intl':       'Internacional',
+      'svc.content':      'Contenido',
+      'svc.social':       'Redes Sociales',
+      'svc.video':        'Video',
+      'svc.photo':        'Fotografía',
+      'svc.webdesign':    'Diseño Web',
+      'svc.webcontent':   'Contenido Web',
+      'svc.brand':        'Identidad Visual',
+      'svc.logo':         'Logotipo',
+      'modal.services':   'Trabajo Realizado',
+      'proj.marca.client':'Creación de Marca',
     },
     en: {
       'nav.about':        'Profile',
@@ -984,6 +1311,24 @@
       'contact.text':     'Available for freelance projects, full-time positions, and strategic collaborations.',
       'contact.cta':      'Send a message ✉️',
       'footer.role':      'Multimedia Engineer | Digital Marketing &amp; SEO Specialist | WordPress Developer',
+      'nav.portfolio':    'Portfolio',
+      'port.label':       'Portfolio',
+      'port.title':       'Featured Projects',
+      'port.see':         'View project →',
+      'badge.social':     'Social Media',
+      'badge.web':        'Web Design',
+      'badge.brand':      'Branding',
+      'badge.intl':       'International',
+      'svc.content':      'Content',
+      'svc.social':       'Social Media',
+      'svc.video':        'Video',
+      'svc.photo':        'Photography',
+      'svc.webdesign':    'Web Design',
+      'svc.webcontent':   'Web Content',
+      'svc.brand':        'Visual Identity',
+      'svc.logo':         'Logo',
+      'modal.services':   'Work Done',
+      'proj.marca.client':'Brand Creation',
     }
   };
 
@@ -1051,6 +1396,309 @@
       io.observe(child);
     });
   });
+
+  /* ── PORTFOLIO MODAL DATA ── */
+  const portfolioData = {
+    caracoli: {
+      icon: '🧁',
+      es: {
+        title: 'Caracolí Pastelería',
+        location: '📍 Cali, Colombia',
+        services: [
+          'Gestión integral de redes sociales (Instagram y Facebook)',
+          'Creación de contenido visual y copywriting estratégico orientado a ventas',
+          'Producción de videos cortos y Reels para impulsar el alcance orgánico',
+          'Diseño de piezas gráficas para promociones y temporadas especiales',
+          'Fotografía de productos artesanales para catálogo digital',
+        ],
+        tags: ['Instagram', 'Facebook', 'Reels', 'Fotografía', 'Copywriting'],
+      },
+      en: {
+        title: 'Caracolí Pastelería',
+        location: '📍 Cali, Colombia',
+        services: [
+          'Full social media management (Instagram and Facebook)',
+          'Visual content creation and strategic sales-oriented copywriting',
+          'Short video and Reels production to boost organic reach',
+          'Graphic design for seasonal promotions and special campaigns',
+          'Product photography for digital catalog',
+        ],
+        tags: ['Instagram', 'Facebook', 'Reels', 'Photography', 'Copywriting'],
+      },
+    },
+    aspaen: {
+      icon: '🎓',
+      es: {
+        title: 'Aspaen Colombia',
+        location: '📍 Cali, Colombia',
+        services: [
+          'Gestión de redes sociales institucionales (Instagram y Facebook)',
+          'Producción fotográfica de eventos académicos, actos cívicos y graduaciones',
+          'Creación de contenido educativo e informativo para comunidad escolar',
+          'Diseño de piezas para comunicados, boletines y campañas de matrícula',
+          'Estrategia de comunicación interna y externa de la institución',
+        ],
+        tags: ['Instagram', 'Facebook', 'Fotografía', 'Educación', 'Comunidad'],
+      },
+      en: {
+        title: 'Aspaen Colombia',
+        location: '📍 Cali, Colombia',
+        services: [
+          'Institutional social media management (Instagram and Facebook)',
+          'Photo coverage of academic events, civic acts and graduations',
+          'Educational and informational content creation for school community',
+          'Graphic design for announcements, newsletters and enrollment campaigns',
+          'Internal and external communication strategy',
+        ],
+        tags: ['Instagram', 'Facebook', 'Photography', 'Education', 'Community'],
+      },
+    },
+    campofresco: {
+      icon: '🥩',
+      es: {
+        title: 'Campo Fresco',
+        location: '📍 Cali, Colombia',
+        services: [
+          'Gestión de redes sociales (Instagram y Facebook) enfocada en ventas',
+          'Producción de videos de producto y recetas para generar engagement',
+          'Fotografía de productos cárnicos con estilismo gastronómico',
+          'Copywriting orientado a destacar frescura, calidad y origen del producto',
+          'Diseño de campañas para días especiales y temporadas altas',
+        ],
+        tags: ['Instagram', 'Facebook', 'Video', 'Fotografía', 'Gastronomía'],
+      },
+      en: {
+        title: 'Campo Fresco',
+        location: '📍 Cali, Colombia',
+        services: [
+          'Sales-focused social media management (Instagram and Facebook)',
+          'Product and recipe video production to drive engagement',
+          'Meat product photography with gastronomic styling',
+          'Copywriting emphasizing freshness, quality, and product origin',
+          'Campaign design for special dates and peak seasons',
+        ],
+        tags: ['Instagram', 'Facebook', 'Video', 'Photography', 'Gastronomy'],
+      },
+    },
+    marca: {
+      icon: '✏️',
+      es: {
+        title: 'Creación de Marca',
+        location: '📍 Medellín, Colombia',
+        services: [
+          'Diseño de identidad visual corporativa completa desde cero',
+          'Creación de logotipo principal con variantes en color, escala de grises y fondo oscuro',
+          'Definición de paleta de colores, tipografías y sistema de diseño',
+          'Manual de marca con normas de uso y aplicaciones en distintos soportes',
+          'Diseño de plantillas para redes sociales alineadas a la identidad',
+        ],
+        tags: ['Logotipo', 'Manual de Marca', 'Identidad Visual', 'Figma', 'Branding'],
+      },
+      en: {
+        title: 'Brand Creation',
+        location: '📍 Medellín, Colombia',
+        services: [
+          'Full corporate visual identity design from scratch',
+          'Logo design with color, grayscale, and dark background variants',
+          'Color palette, typography, and design system definition',
+          'Brand guidelines with usage rules and multi-format applications',
+          'Social media template design aligned to brand identity',
+        ],
+        tags: ['Logo', 'Brand Guidelines', 'Visual Identity', 'Figma', 'Branding'],
+      },
+    },
+    siamco: {
+      icon: '🏗️',
+      es: {
+        title: 'Siamco Ingenierías',
+        location: '📍 Cali, Colombia',
+        services: [
+          'Gestión de redes sociales corporativas (Instagram y LinkedIn)',
+          'Fotografía de obras, proyectos de infraestructura y equipo de trabajo',
+          'Creación de contenido técnico y corporativo en tono B2B',
+          'Diseño de piezas para presentación de proyectos y licitaciones',
+          'Estrategia de posicionamiento y reputación de marca en el sector',
+        ],
+        tags: ['Instagram', 'LinkedIn', 'Fotografía', 'B2B', 'Construcción'],
+      },
+      en: {
+        title: 'Siamco Ingenierías',
+        location: '📍 Cali, Colombia',
+        services: [
+          'Corporate social media management (Instagram and LinkedIn)',
+          'Photography of construction projects, infrastructure, and work team',
+          'Technical and corporate B2B content creation',
+          'Graphic design for project presentations and tenders',
+          'Brand positioning and reputation strategy in the sector',
+        ],
+        tags: ['Instagram', 'LinkedIn', 'Photography', 'B2B', 'Construction'],
+      },
+    },
+    monica: {
+      icon: '🧠',
+      es: {
+        title: 'Mónica Muñoz — Psicóloga',
+        location: '📍 Cali, Colombia',
+        services: [
+          'Diseño y desarrollo del sitio web en WordPress con enfoque en conversión',
+          'Arquitectura de información y experiencia de usuario (UX/UI)',
+          'Redacción de contenidos web especializados en psicología y bienestar',
+          'Producción de video corporativo para presentación de servicios',
+          'Optimización SEO on-page para posicionamiento en búsquedas locales',
+        ],
+        tags: ['WordPress', 'SEO', 'UX/UI', 'Psicología', 'Video'],
+      },
+      en: {
+        title: 'Mónica Muñoz — Psychologist',
+        location: '📍 Cali, Colombia',
+        services: [
+          'Conversion-focused website design and development in WordPress',
+          'Information architecture and user experience (UX/UI)',
+          'Specialized web content writing for psychology and wellness',
+          'Corporate video production for service presentation',
+          'On-page SEO optimization for local search positioning',
+        ],
+        tags: ['WordPress', 'SEO', 'UX/UI', 'Psychology', 'Video'],
+      },
+    },
+    cedecur: {
+      icon: '🌿',
+      es: {
+        title: 'Cedecur',
+        location: '📍 Cali, Colombia',
+        services: [
+          'Diseño y desarrollo del sitio web institucional en WordPress',
+          'Fotografía corporativa e institucional del campus y actividades',
+          'Estrategia de contenido web con foco en captación de nuevos alumnos',
+          'Optimización SEO para visibilidad en búsquedas educativas regionales',
+          'Creación de páginas de programas académicos con call-to-action efectivos',
+        ],
+        tags: ['WordPress', 'SEO', 'Fotografía', 'Educación', 'Institucional'],
+      },
+      en: {
+        title: 'Cedecur',
+        location: '📍 Cali, Colombia',
+        services: [
+          'Institutional website design and development in WordPress',
+          'Corporate and institutional photography of campus and activities',
+          'Web content strategy focused on attracting new students',
+          'SEO optimization for visibility in regional educational searches',
+          'Academic program pages with effective call-to-action elements',
+        ],
+        tags: ['WordPress', 'SEO', 'Photography', 'Education', 'Institutional'],
+      },
+    },
+    ibvc: {
+      icon: '⚡',
+      es: {
+        title: 'IbVC Momentum',
+        location: '📍 Bogotá, Colombia',
+        services: [
+          'Diseño y desarrollo de landing page estratégica en WordPress',
+          'Creación de contenido web orientado a captación de inversores y socios',
+          'Producción de video institucional para presentación de la empresa',
+          'Diseño de presentaciones pitch y materiales corporativos digitales',
+          'Optimización de conversión (CRO) y seguimiento con Google Analytics',
+        ],
+        tags: ['WordPress', 'Landing Page', 'Video', 'B2B', 'Startups'],
+      },
+      en: {
+        title: 'IbVC Momentum',
+        location: '📍 Bogotá, Colombia',
+        services: [
+          'Strategic landing page design and development in WordPress',
+          'Web content creation aimed at attracting investors and partners',
+          'Institutional video production for company presentation',
+          'Pitch deck design and digital corporate materials',
+          'Conversion rate optimization (CRO) and Google Analytics tracking',
+        ],
+        tags: ['WordPress', 'Landing Page', 'Video', 'B2B', 'Startups'],
+      },
+    },
+    yamefui: {
+      icon: '✈️',
+      es: {
+        title: 'Ya me fui',
+        location: '🌎 México',
+        services: [
+          'Diseño y desarrollo de plataforma web de turismo y viajes en WordPress',
+          'Creación de contenido web bilingüe (español e inglés) para audiencia internacional',
+          'Producción de videos de destinos turísticos y experiencias de viaje',
+          'Estrategia de SEO internacional para visibilidad en múltiples mercados',
+          'Gestión de redes sociales con enfoque en comunidad viajera',
+        ],
+        tags: ['WordPress', 'Turismo', 'Bilingüe', 'México', 'Internacional'],
+      },
+      en: {
+        title: 'Ya me fui',
+        location: '🌎 Mexico',
+        services: [
+          'Travel and tourism web platform design and development in WordPress',
+          'Bilingual web content creation (Spanish and English) for international audiences',
+          'Video production covering travel destinations and experiences',
+          'International SEO strategy for visibility across multiple markets',
+          'Social media management focused on the travel community',
+        ],
+        tags: ['WordPress', 'Tourism', 'Bilingual', 'Mexico', 'International'],
+      },
+    },
+    hr: {
+      icon: '🏢',
+      es: {
+        title: 'HR Unlimited',
+        location: '🌎 Estados Unidos',
+        services: [
+          'Diseño y desarrollo de sitio web corporativo en inglés en WordPress',
+          'Fotografía corporativa, editorial y de equipo de trabajo',
+          'Redacción de contenido profesional en inglés para mercado estadounidense',
+          'Diseño de identidad digital alineada a estándares corporativos internacionales',
+          'Estrategia SEO en inglés para posicionamiento en el mercado de RRHH en EE.UU.',
+        ],
+        tags: ['WordPress', 'Inglés', 'RRHH', 'Corporativo', 'EE.UU.'],
+      },
+      en: {
+        title: 'HR Unlimited',
+        location: '🌎 United States',
+        services: [
+          'Corporate website design and development in English using WordPress',
+          'Corporate, editorial, and team photography',
+          'Professional English content writing for the US market',
+          'Digital identity design aligned to international corporate standards',
+          'English SEO strategy for positioning in the US HR market',
+        ],
+        tags: ['WordPress', 'English', 'HR', 'Corporate', 'USA'],
+      },
+    },
+  };
+
+  /* ── MODAL FUNCTIONS ── */
+  function openModal(id) {
+    const data = portfolioData[id];
+    if (!data) return;
+    const lang = currentLang;
+    const d = data[lang];
+    document.getElementById('modalIcon').textContent     = data.icon;
+    document.getElementById('modalTitle').textContent    = d.title;
+    document.getElementById('modalLocation').textContent = d.location;
+    const ul = document.getElementById('modalServices');
+    ul.innerHTML = d.services.map(s => `<li>${s}</li>`).join('');
+    const tags = document.getElementById('modalTags');
+    tags.innerHTML = d.tags.map(tag => `<span class="modal-tag">${tag}</span>`).join('');
+    const overlay = document.getElementById('modalOverlay');
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function closeModalOutside(event) {
+    if (event.target === document.getElementById('modalOverlay')) closeModal();
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 </script>
 </body>
 </html>
