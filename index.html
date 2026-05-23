@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jhon Jairo Vega — Multimedia Engineer</title>
+  <title>Jhon Jairo Vega — Coordinador de Marketing | Ingeniero Multimedia</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
@@ -298,6 +298,27 @@
       color: var(--accent); transform: translateY(-1px);
     }
 
+    /* ── INTERESTS ── */
+    .interests-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+    .interest-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform .25s, box-shadow .25s;
+      position: relative; overflow: hidden;
+    }
+    .interest-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--gradient);
+    }
+    .interest-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .interest-icon { font-size: 2rem; margin-bottom: .75rem; display: block; }
+    .interest-title { font-weight: 700; font-size: 1rem; margin-bottom: .5rem; }
+    .interest-desc { font-size: .86rem; color: var(--text-sub); line-height: 1.6; }
+
     /* ── EDUCATION / CERTS ── */
     .edu-cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
     .edu-card, .cert-card {
@@ -376,6 +397,19 @@
     .footer-links a { color: rgba(255,255,255,.5); text-decoration: none; font-size: .82rem; transition: color .2s; }
     .footer-links a:hover { color: var(--accent2); }
 
+    /* ── PROFILE PHOTO ── */
+    .hero-photo-wrap {
+      margin-bottom: 1.75rem;
+      animation: fadeDown .7s ease both;
+    }
+    .hero-photo {
+      width: 120px; height: 120px; border-radius: 50%;
+      object-fit: cover; object-position: center top;
+      border: 3px solid var(--surface);
+      box-shadow: 0 0 0 5px rgba(79,110,247,.15), var(--shadow-lg);
+      display: block; margin: 0 auto;
+    }
+
     /* ── ANIMATIONS ── */
     @keyframes fadeUp   { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:none; } }
     @keyframes fadeDown { from { opacity:0; transform:translateY(-16px); } to { opacity:1; transform:none; } }
@@ -421,15 +455,18 @@
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-inner">
+    <div class="hero-photo-wrap">
+      <img src="foto.jpeg" alt="Jhon Jairo Vega" class="hero-photo" />
+    </div>
     <div class="hero-badge">
       <span></span>
-      Disponible para nuevos proyectos
+      Disponible para reubicación
     </div>
     <h1>
       Jhon Jairo<br />
       <span class="gradient-text">Vega</span>
     </h1>
-    <p class="hero-sub">Multimedia Engineer &nbsp;·&nbsp; Digital Marketing &amp; Data Analytics Specialist</p>
+    <p class="hero-sub">Coordinador de Marketing &nbsp;·&nbsp; Retail, Eventos &amp; Digital &nbsp;·&nbsp; Ingeniero Multimedia</p>
     <div class="hero-meta">
       <span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -459,24 +496,24 @@
 <div class="container">
   <div class="stats-grid reveal">
     <div class="stat-card">
-      <div class="stat-value">5+</div>
-      <div class="stat-label">Años de experiencia</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-value">10+</div>
-      <div class="stat-label">Sitios web lanzados</div>
+      <div class="stat-value">+40%</div>
+      <div class="stat-label">Visibilidad SEO orgánica</div>
     </div>
     <div class="stat-card">
       <div class="stat-value">+35%</div>
-      <div class="stat-label">Engagement en campañas</div>
+      <div class="stat-label">Engagement en campañas digitales</div>
     </div>
     <div class="stat-card">
-      <div class="stat-value">+40%</div>
-      <div class="stat-label">Visibilidad SEO</div>
+      <div class="stat-value">-25%</div>
+      <div class="stat-label">Tasa de rebote reducida</div>
     </div>
     <div class="stat-card">
-      <div class="stat-value">B2</div>
-      <div class="stat-label">Nivel de inglés</div>
+      <div class="stat-value">+10</div>
+      <div class="stat-label">Sitios web lanzados a tiempo</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">+20%</div>
+      <div class="stat-label">Conversiones en dispositivos móviles</div>
     </div>
   </div>
 </div>
@@ -491,9 +528,9 @@
     <div class="about-grid reveal">
       <div class="about-card">
         <p class="about-text">
-          Ingeniero Multimedia con más de <strong>5 años de trayectoria profesional</strong> integrando la postproducción audiovisual, el diseño web y el marketing digital. Especializado en WordPress, metodologías ágiles y liderazgo de equipos creativos.
+          Ingeniero Multimedia con más de <strong>5 años de experiencia</strong> liderando estrategias de marketing digital, contenido de marca y proyectos creativos en entornos competitivos. Experiencia en <strong>estrategias de retail, eventos, diseño y canales digitales</strong>, con habilidad para coordinar equipos creativos y técnicos bajo metodologías ágiles.
           <br /><br />
-          Bilingüe con sólidas habilidades en <strong>UX/UI</strong> y posicionamiento de marca. Apasionado por crear soluciones digitales que conecten marcas con sus audiencias de manera efectiva y medible.
+          Historial comprobado de incrementar la visibilidad orgánica en <strong>40%</strong>, aumentar el engagement en <strong>35%</strong> y gestionar más de <strong>10 proyectos web</strong> en tiempo y presupuesto. Bilingüe (ES/EN – B2).
         </p>
         <div class="lang-row" style="margin-top:1.5rem;">
           <div class="lang-card">
@@ -509,12 +546,12 @@
       <div class="about-card">
         <p style="font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;">Especializaciones</p>
         <ul class="spec-list">
-          <li class="spec-item"><span class="spec-dot"></span>Postproducción Audiovisual</li>
-          <li class="spec-item"><span class="spec-dot"></span>Diseño Web — Frontend &amp; Backend</li>
-          <li class="spec-item"><span class="spec-dot"></span>Marketing Digital — SEO / SEM</li>
-          <li class="spec-item"><span class="spec-dot"></span>WordPress Development &amp; Customization</li>
-          <li class="spec-item"><span class="spec-dot"></span>Gestión de Proyectos Multimedia</li>
-          <li class="spec-item"><span class="spec-dot"></span>UX/UI Design</li>
+          <li class="spec-item"><span class="spec-dot"></span>Coordinación de Marketing — Retail &amp; Eventos</li>
+          <li class="spec-item"><span class="spec-dot"></span>Estrategia de Contenidos &amp; SEO/SEM</li>
+          <li class="spec-item"><span class="spec-dot"></span>Campañas Meta Ads &amp; Google Ads</li>
+          <li class="spec-item"><span class="spec-dot"></span>WordPress Development &amp; Web Analytics</li>
+          <li class="spec-item"><span class="spec-dot"></span>Liderazgo de Equipos Creativos</li>
+          <li class="spec-item"><span class="spec-dot"></span>UX/UI Design &amp; Producción Multimedia</li>
         </ul>
       </div>
     </div>
@@ -530,20 +567,24 @@
     <h2 class="section-title">Resultados medibles</h2>
     <div class="ach-grid reveal">
       <div class="ach-card">
-        <div class="ach-value">+35%</div>
-        <div class="ach-label">Engagement y +20% conversiones en campañas Meta y Google Ads</div>
+        <div class="ach-value">+40%</div>
+        <div class="ach-label">Visibilidad SEO orgánica mediante estrategias de Link Building y optimización on-page</div>
       </div>
       <div class="ach-card">
-        <div class="ach-value">+40%</div>
-        <div class="ach-label">Visibilidad en motores de búsqueda mediante estrategias SEO avanzadas</div>
+        <div class="ach-value">+35%</div>
+        <div class="ach-label">Engagement en campañas digitales de Meta Ads y Google Ads</div>
       </div>
       <div class="ach-card">
         <div class="ach-value">-25%</div>
-        <div class="ach-label">Reducción en tasa de rebote con mejoras de UX y velocidad de carga</div>
+        <div class="ach-label">Tasa de rebote reducida con mejoras de UX y velocidad de carga</div>
       </div>
       <div class="ach-card">
-        <div class="ach-value">10+</div>
-        <div class="ach-label">Sitios web lanzados en plazos promedio de 3 meses</div>
+        <div class="ach-value">+10</div>
+        <div class="ach-label">Sitios web lanzados a tiempo y dentro del presupuesto</div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-value">+20%</div>
+        <div class="ach-label">Conversiones en dispositivos móviles con SEO móvil y Core Web Vitals</div>
       </div>
     </div>
   </div>
@@ -569,9 +610,9 @@
             <div class="exp-period">Nov 2025 – Presente</div>
           </div>
           <ul class="exp-bullets">
-            <li>Creación de contenidos digitales estratégicos para web, blogs y redes sociales</li>
-            <li>Gestión de calendario editorial y optimización de canales con Meta Business Suite y Metricool</li>
-            <li>Diseño y administración de campañas Meta Ads</li>
+            <li>Creación y redacción de contenidos estratégicos (web, blogs, RRSS) alineados a objetivos de negocio y SEO on-page</li>
+            <li>Gestión de calendario editorial y optimización de perfiles Google My Business con Meta Business Suite y Metricool</li>
+            <li>Diseño y administración de campañas Meta Ads: segmentación avanzada, resolución de incidencias técnicas y optimización continua para maximizar ROAS</li>
           </ul>
         </div>
       </div>
@@ -587,9 +628,9 @@
             <div class="exp-period">Oct 2024 – Nov 2025</div>
           </div>
           <ul class="exp-bullets">
-            <li>Auditorías SEO técnicas, de contenido y de enlaces</li>
-            <li>Keyword Research y optimización on-page</li>
-            <li>Estrategias de Link Building</li>
+            <li>Auditorías SEO técnicas, de contenido y de enlaces para identificar y corregir factores que limitaban el posicionamiento orgánico</li>
+            <li>Keyword Research estratégico y optimización on-page (meta tags, estructura de encabezados, velocidad de página) alineada con Core Web Vitals</li>
+            <li>Estrategias de Link Building orientadas a fortalecer la autoridad de dominio y mejorar posiciones en SERPs — logro: <strong>+40% visibilidad orgánica</strong></li>
           </ul>
         </div>
       </div>
@@ -605,9 +646,9 @@
             <div class="exp-period">May 2023 – Jul 2024</div>
           </div>
           <ul class="exp-bullets">
-            <li>Desarrollo y mantenimiento de sitio web corporativo</li>
-            <li>Estrategias SEO y optimización de experiencia móvil</li>
-            <li>Gestión de campañas Meta Ads y Google Ads</li>
+            <li>Desarrollo y mantenimiento del sitio web corporativo con enfoque en velocidad de carga (Core Web Vitals) y tráfico orgánico</li>
+            <li>Implementación de estrategias SEO móvil que mejoraron las conversiones en dispositivos en más de un <strong>+20%</strong></li>
+            <li>Gestión de campañas Meta Ads y Google Ads optimizando el retorno sobre inversión publicitaria (ROI/ROAS)</li>
           </ul>
         </div>
       </div>
@@ -623,9 +664,9 @@
             <div class="exp-period">Feb 2024 – Oct 2024</div>
           </div>
           <ul class="exp-bullets">
-            <li>Optimización de velocidad de carga y tráfico orgánico</li>
-            <li>Estrategias SEO y mejora de experiencia móvil</li>
-            <li>Gestión de campañas Meta Ads y Google Ads</li>
+            <li>Desarrollo y optimización del sitio web corporativo: velocidad de carga, UX y tráfico orgánico</li>
+            <li>Liderazgo de estrategias SEO y experiencia móvil con mejoras medibles en conversiones</li>
+            <li>Gestión integral de campañas Meta Ads y Google Ads, optimizando la inversión publicitaria</li>
           </ul>
         </div>
       </div>
@@ -641,9 +682,9 @@
             <div class="exp-period">Nov 2018 – May 2023</div>
           </div>
           <ul class="exp-bullets">
-            <li>Creación de contenido estratégico y campañas en redes sociales</li>
-            <li>Estrategia de contenido para cohesión de marca corporativa</li>
-            <li>Gestión de calendario editorial e interacción con comunidad</li>
+            <li>Creación de contenido estratégico y campañas sociales que incrementaron el engagement de la comunidad en un <strong>35%</strong></li>
+            <li>Diseño y ejecución de estrategia editorial para fortalecer la cohesión de marca y el tráfico a canales digitales</li>
+            <li>Gestión del calendario editorial e interacción con la comunidad para fomentar fidelización y mejorar conversión</li>
           </ul>
         </div>
       </div>
@@ -662,52 +703,43 @@
     <div class="skills-wrapper reveal">
 
       <div class="skill-category">
-        <div class="skill-cat-title"><span class="skill-cat-icon">🔍</span> SEO / SEM</div>
+        <div class="skill-cat-title"><span class="skill-cat-icon">📣</span> Marketing Digital</div>
         <div class="skill-tags">
-          <span class="skill-tag">Auditoría Técnica</span>
-          <span class="skill-tag">Keyword Research</span>
-          <span class="skill-tag">Link Building</span>
-          <span class="skill-tag">Google Search Console</span>
-          <span class="skill-tag">Ahrefs</span>
-          <span class="skill-tag">SEMrush</span>
-        </div>
-      </div>
-
-      <div class="skill-category">
-        <div class="skill-cat-title"><span class="skill-cat-icon">📢</span> Paid Media</div>
-        <div class="skill-tags">
+          <span class="skill-tag">Estrategia de contenidos</span>
+          <span class="skill-tag">SEO / SEM</span>
           <span class="skill-tag">Meta Ads</span>
           <span class="skill-tag">Google Ads</span>
-          <span class="skill-tag">Meta Business Suite</span>
           <span class="skill-tag">Metricool</span>
         </div>
       </div>
 
       <div class="skill-category">
-        <div class="skill-cat-title"><span class="skill-cat-icon">💻</span> Desarrollo Web</div>
+        <div class="skill-cat-title"><span class="skill-cat-icon">🛍️</span> Retail &amp; Eventos</div>
         <div class="skill-tags">
-          <span class="skill-tag">WordPress</span>
-          <span class="skill-tag">Elementor</span>
-          <span class="skill-tag">HTML / CSS</span>
-          <span class="skill-tag">Core Web Vitals</span>
+          <span class="skill-tag">Activaciones de marca</span>
+          <span class="skill-tag">Estrategias de retail</span>
+          <span class="skill-tag">Planificación de eventos</span>
         </div>
       </div>
 
       <div class="skill-category">
-        <div class="skill-cat-title"><span class="skill-cat-icon">🎨</span> Diseño Creativo</div>
+        <div class="skill-cat-title"><span class="skill-cat-icon">🎨</span> Diseño &amp; Multimedia</div>
         <div class="skill-tags">
           <span class="skill-tag">Figma</span>
           <span class="skill-tag">Adobe XD</span>
           <span class="skill-tag">Photoshop</span>
           <span class="skill-tag">Illustrator</span>
           <span class="skill-tag">Premiere Pro</span>
-          <span class="skill-tag">Canva</span>
+          <span class="skill-tag">After Effects</span>
         </div>
       </div>
 
       <div class="skill-category">
-        <div class="skill-cat-title"><span class="skill-cat-icon">📊</span> Analytics &amp; Data</div>
+        <div class="skill-cat-title"><span class="skill-cat-icon">💻</span> Web &amp; Tecnología</div>
         <div class="skill-tags">
+          <span class="skill-tag">WordPress</span>
+          <span class="skill-tag">Elementor</span>
+          <span class="skill-tag">HTML / CSS</span>
           <span class="skill-tag">Google Analytics 4</span>
           <span class="skill-tag">Google Tag Manager</span>
           <span class="skill-tag">Looker Studio</span>
@@ -715,11 +747,53 @@
       </div>
 
       <div class="skill-category">
-        <div class="skill-cat-title"><span class="skill-cat-icon">⚡</span> Metodología</div>
+        <div class="skill-cat-title"><span class="skill-cat-icon">👥</span> Gestión</div>
         <div class="skill-tags">
-          <span class="skill-tag">Agile</span>
-          <span class="skill-tag">Scrum</span>
+          <span class="skill-tag">Liderazgo de equipos creativos</span>
+          <span class="skill-tag">Calendarios editoriales</span>
+          <span class="skill-tag">Agile / Scrum</span>
         </div>
+      </div>
+
+      <div class="skill-category">
+        <div class="skill-cat-title"><span class="skill-cat-icon">🔧</span> Herramientas</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Meta Business Suite</span>
+          <span class="skill-tag">Google Search Console</span>
+          <span class="skill-tag">Ahrefs</span>
+          <span class="skill-tag">SEMrush</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- INTERESTS -->
+<section>
+  <div class="container">
+    <div class="section-label">Intereses</div>
+    <h2 class="section-title">Afinidad de Marca &amp; Pasiones</h2>
+    <div class="interests-grid reveal">
+
+      <div class="interest-card">
+        <span class="interest-icon">🚵</span>
+        <div class="interest-title">Ciclismo Amateur</div>
+        <div class="interest-desc">Practico mountain bike regularmente — entiendo la cultura, los valores y la comunidad del ciclismo desde adentro.</div>
+      </div>
+
+      <div class="interest-card">
+        <span class="interest-icon">🎨</span>
+        <div class="interest-title">Diseño &amp; Creatividad</div>
+        <div class="interest-desc">Pasión por el diseño visual, la fotografía y la narrativa de marca orientada a comunidades deportivas.</div>
+      </div>
+
+      <div class="interest-card">
+        <span class="interest-icon">📊</span>
+        <div class="interest-title">Marketing Basado en Datos</div>
+        <div class="interest-desc">Combino creatividad con analítica para decisiones estratégicas orientadas a resultados medibles.</div>
       </div>
 
     </div>
@@ -739,7 +813,7 @@
         <div class="edu-degree">Ingeniería Multimedia</div>
         <div class="edu-inst">Universidad de San Buenaventura de Cali</div>
         <div class="edu-period">Jul 2014 – Mar 2020</div>
-        <div class="edu-focus">Diseño web · Diseño gráfico · Interfaces de usuario</div>
+        <div class="edu-focus">Diseño web · Diseño gráfico · Interfaces de usuario. Proyectos destacados: creación de interfaces UX innovadoras y proyectos aplicados de desarrollo web.</div>
       </div>
 
       <div class="cert-card">
@@ -788,7 +862,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <strong>Jhon Jairo Vega</strong> — Multimedia Engineer &amp; Digital Marketing Specialist<br />
+  <strong>Jhon Jairo Vega</strong> — Coordinador de Marketing | Retail, Eventos &amp; Digital | Ingeniero Multimedia<br />
   <div class="footer-links">
     <a href="mailto:jhonjairovega96@gmail.com">jhonjairovega96@gmail.com</a>
     <a href="tel:+573008113078">(300) 811-3078</a>
